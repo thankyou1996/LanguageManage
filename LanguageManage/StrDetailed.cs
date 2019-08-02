@@ -20,7 +20,7 @@ namespace LanguagesManage
         /// <summary>
         /// 先后显示的行数量
         /// </summary>
-        int displayNum = 5;
+        int displayNum = 10;
 
         DataTable strContentDt;
 

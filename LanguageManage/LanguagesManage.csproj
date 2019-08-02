@@ -36,6 +36,10 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CommonMethod, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dllLibary\CommonMethod.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -71,6 +75,12 @@
     <Compile Include="CodeFilter_Resx.Designer.cs">
       <DependentUpon>CodeFilter_Resx.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmResxInfoSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmResxInfoSet.Designer.cs">
+      <DependentUpon>FrmResxInfoSet.cs</DependentUpon>
+    </Compile>
     <Compile Include="GuideBack.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +100,8 @@
     <Compile Include="dbConn.Designer.cs">
       <DependentUpon>dbConn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\CodeResxItem.cs" />
+    <Compile Include="Model\ResxFile.cs" />
     <Compile Include="Project.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,7 +152,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResxHelper\ResxData.cs" />
+    <Compile Include="ResxHelper\PubMethod.cs" />
+    <Compile Include="Model\ResxData.cs" />
     <Compile Include="ResxHelper\XmlUse.cs" />
     <Compile Include="ScriptManage.cs">
       <SubType>Form</SubType>
@@ -155,7 +168,6 @@
     <Compile Include="SetUp.Designer.cs">
       <DependentUpon>SetUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Static\ResxHelper1.cs" />
     <Compile Include="StrDetailed.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="dbConn.resx">
       <DependentUpon>dbConn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmResxInfoSet.resx">
+      <DependentUpon>FrmResxInfoSet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GuideBack.resx">
       <DependentUpon>GuideBack.cs</DependentUpon>
@@ -258,8 +273,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="dllLibary\CommonMethod.dll" />
+    <Content Include="dllLibary\CommonMethod.pdb" />
+    <Content Include="dllLibary\CommonMethod.XML" />
     <Content Include="WaitWindow.dll" />
     <Content Include="WinFormPaging.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Static\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

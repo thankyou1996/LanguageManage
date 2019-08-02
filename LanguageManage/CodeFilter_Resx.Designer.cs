@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvStrContent = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.lblStrNum = new System.Windows.Forms.Label();
@@ -52,6 +52,10 @@
             this.cmbProject = new System.Windows.Forms.ComboBox();
             this.btnGuideBack = new System.Windows.Forms.Button();
             this.cmbResx = new System.Windows.Forms.ComboBox();
+            this.btnResxInsert = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.btnEntryDefautlValue = new System.Windows.Forms.Button();
+            this.btnEntryComment = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStrContent)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,23 +63,27 @@
             // 
             this.dgvStrContent.AllowUserToAddRows = false;
             this.dgvStrContent.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dgvStrContent.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvStrContent.AllowUserToResizeRows = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgvStrContent.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvStrContent.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvStrContent.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.dgvStrContent.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvStrContent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStrContent.Location = new System.Drawing.Point(12, 241);
+            this.dgvStrContent.Location = new System.Drawing.Point(12, 202);
             this.dgvStrContent.Name = "dgvStrContent";
             this.dgvStrContent.RowTemplate.Height = 23;
-            this.dgvStrContent.Size = new System.Drawing.Size(603, 406);
+            this.dgvStrContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvStrContent.Size = new System.Drawing.Size(597, 388);
             this.dgvStrContent.TabIndex = 3;
+            this.dgvStrContent.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvStrContent_CellMouseClick);
             this.dgvStrContent.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
+            this.dgvStrContent.SelectionChanged += new System.EventHandler(this.DgvStrContent_SelectionChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 218);
+            this.label1.Location = new System.Drawing.Point(10, 122);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 12);
             this.label1.TabIndex = 6;
@@ -84,7 +92,7 @@
             // lblStrNum
             // 
             this.lblStrNum.AutoSize = true;
-            this.lblStrNum.Location = new System.Drawing.Point(51, 218);
+            this.lblStrNum.Location = new System.Drawing.Point(51, 122);
             this.lblStrNum.Name = "lblStrNum";
             this.lblStrNum.Size = new System.Drawing.Size(11, 12);
             this.lblStrNum.TabIndex = 7;
@@ -92,7 +100,7 @@
             // 
             // btnAllSelected
             // 
-            this.btnAllSelected.Location = new System.Drawing.Point(552, 214);
+            this.btnAllSelected.Location = new System.Drawing.Point(206, 173);
             this.btnAllSelected.Name = "btnAllSelected";
             this.btnAllSelected.Size = new System.Drawing.Size(63, 23);
             this.btnAllSelected.TabIndex = 9;
@@ -105,7 +113,7 @@
             this.chkOnlyChines.AutoSize = true;
             this.chkOnlyChines.Checked = true;
             this.chkOnlyChines.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkOnlyChines.Location = new System.Drawing.Point(122, 217);
+            this.chkOnlyChines.Location = new System.Drawing.Point(122, 121);
             this.chkOnlyChines.Name = "chkOnlyChines";
             this.chkOnlyChines.Size = new System.Drawing.Size(60, 16);
             this.chkOnlyChines.TabIndex = 12;
@@ -115,7 +123,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(471, 213);
+            this.button1.Location = new System.Drawing.Point(275, 173);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 13;
@@ -138,16 +146,16 @@
             this.lstPath.AllowDrop = true;
             this.lstPath.FormattingEnabled = true;
             this.lstPath.ItemHeight = 12;
-            this.lstPath.Location = new System.Drawing.Point(12, 73);
+            this.lstPath.Location = new System.Drawing.Point(12, 43);
             this.lstPath.Name = "lstPath";
-            this.lstPath.Size = new System.Drawing.Size(520, 136);
+            this.lstPath.Size = new System.Drawing.Size(667, 76);
             this.lstPath.TabIndex = 15;
             this.lstPath.DragDrop += new System.Windows.Forms.DragEventHandler(this.LstPath_DragDrop);
             this.lstPath.DragEnter += new System.Windows.Forms.DragEventHandler(this.LstPath_DragEnter);
             // 
             // btnRemoveAll
             // 
-            this.btnRemoveAll.Location = new System.Drawing.Point(538, 144);
+            this.btnRemoveAll.Location = new System.Drawing.Point(698, 76);
             this.btnRemoveAll.Name = "btnRemoveAll";
             this.btnRemoveAll.Size = new System.Drawing.Size(71, 27);
             this.btnRemoveAll.TabIndex = 17;
@@ -157,7 +165,7 @@
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(538, 73);
+            this.btnRemove.Location = new System.Drawing.Point(694, 43);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(71, 27);
             this.btnRemove.TabIndex = 18;
@@ -168,7 +176,7 @@
             // chkControl
             // 
             this.chkControl.AutoSize = true;
-            this.chkControl.Location = new System.Drawing.Point(242, 217);
+            this.chkControl.Location = new System.Drawing.Point(242, 121);
             this.chkControl.Name = "chkControl";
             this.chkControl.Size = new System.Drawing.Size(72, 16);
             this.chkControl.TabIndex = 19;
@@ -188,19 +196,19 @@
             // 
             // btnReplaces
             // 
-            this.btnReplaces.Location = new System.Drawing.Point(188, 12);
+            this.btnReplaces.Location = new System.Drawing.Point(12, 173);
             this.btnReplaces.Name = "btnReplaces";
             this.btnReplaces.Size = new System.Drawing.Size(75, 23);
             this.btnReplaces.TabIndex = 21;
-            this.btnReplaces.Text = "替换";
+            this.btnReplaces.Text = "替换代码";
             this.btnReplaces.UseVisualStyleBackColor = true;
             this.btnReplaces.Click += new System.EventHandler(this.btnReplaces_Click);
             // 
             // btnFlushs
             // 
-            this.btnFlushs.Location = new System.Drawing.Point(538, 179);
+            this.btnFlushs.Location = new System.Drawing.Point(356, 173);
             this.btnFlushs.Name = "btnFlushs";
-            this.btnFlushs.Size = new System.Drawing.Size(71, 27);
+            this.btnFlushs.Size = new System.Drawing.Size(71, 23);
             this.btnFlushs.TabIndex = 22;
             this.btnFlushs.Text = "刷新";
             this.btnFlushs.UseVisualStyleBackColor = true;
@@ -208,7 +216,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(538, 106);
+            this.btnAdd.Location = new System.Drawing.Point(800, 43);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(71, 27);
             this.btnAdd.TabIndex = 23;
@@ -219,7 +227,7 @@
             // rdoXml
             // 
             this.rdoXml.AutoSize = true;
-            this.rdoXml.Location = new System.Drawing.Point(339, 15);
+            this.rdoXml.Location = new System.Drawing.Point(278, 12);
             this.rdoXml.Name = "rdoXml";
             this.rdoXml.Size = new System.Drawing.Size(65, 16);
             this.rdoXml.TabIndex = 24;
@@ -231,7 +239,7 @@
             // 
             this.rdoDb.AutoSize = true;
             this.rdoDb.Checked = true;
-            this.rdoDb.Location = new System.Drawing.Point(274, 15);
+            this.rdoDb.Location = new System.Drawing.Point(213, 12);
             this.rdoDb.Name = "rdoDb";
             this.rdoDb.Size = new System.Drawing.Size(59, 16);
             this.rdoDb.TabIndex = 25;
@@ -243,7 +251,7 @@
             // chkSql
             // 
             this.chkSql.AutoSize = true;
-            this.chkSql.Location = new System.Drawing.Point(320, 217);
+            this.chkSql.Location = new System.Drawing.Point(320, 121);
             this.chkSql.Name = "chkSql";
             this.chkSql.Size = new System.Drawing.Size(66, 16);
             this.chkSql.TabIndex = 26;
@@ -254,7 +262,7 @@
             // chkFontSet
             // 
             this.chkFontSet.AutoSize = true;
-            this.chkFontSet.Location = new System.Drawing.Point(188, 217);
+            this.chkFontSet.Location = new System.Drawing.Point(188, 121);
             this.chkFontSet.Name = "chkFontSet";
             this.chkFontSet.Size = new System.Drawing.Size(48, 16);
             this.chkFontSet.TabIndex = 27;
@@ -265,7 +273,7 @@
             // chkImageSet
             // 
             this.chkImageSet.AutoSize = true;
-            this.chkImageSet.Location = new System.Drawing.Point(392, 217);
+            this.chkImageSet.Location = new System.Drawing.Point(392, 121);
             this.chkImageSet.Name = "chkImageSet";
             this.chkImageSet.Size = new System.Drawing.Size(72, 16);
             this.chkImageSet.TabIndex = 28;
@@ -277,7 +285,7 @@
             // 
             this.cmbProject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProject.FormattingEnabled = true;
-            this.cmbProject.Location = new System.Drawing.Point(12, 41);
+            this.cmbProject.Location = new System.Drawing.Point(358, 11);
             this.cmbProject.Name = "cmbProject";
             this.cmbProject.Size = new System.Drawing.Size(251, 20);
             this.cmbProject.TabIndex = 29;
@@ -285,7 +293,7 @@
             // 
             // btnGuideBack
             // 
-            this.btnGuideBack.Location = new System.Drawing.Point(538, 12);
+            this.btnGuideBack.Location = new System.Drawing.Point(693, 12);
             this.btnGuideBack.Name = "btnGuideBack";
             this.btnGuideBack.Size = new System.Drawing.Size(72, 23);
             this.btnGuideBack.TabIndex = 30;
@@ -296,16 +304,59 @@
             // cmbResx
             // 
             this.cmbResx.FormattingEnabled = true;
-            this.cmbResx.Location = new System.Drawing.Point(320, 41);
+            this.cmbResx.Location = new System.Drawing.Point(12, 143);
             this.cmbResx.Name = "cmbResx";
-            this.cmbResx.Size = new System.Drawing.Size(147, 20);
+            this.cmbResx.Size = new System.Drawing.Size(188, 20);
             this.cmbResx.TabIndex = 31;
+            // 
+            // btnResxInsert
+            // 
+            this.btnResxInsert.Location = new System.Drawing.Point(102, 173);
+            this.btnResxInsert.Name = "btnResxInsert";
+            this.btnResxInsert.Size = new System.Drawing.Size(98, 23);
+            this.btnResxInsert.TabIndex = 32;
+            this.btnResxInsert.Text = "写入Resx文件";
+            this.btnResxInsert.UseVisualStyleBackColor = true;
+            this.btnResxInsert.Click += new System.EventHandler(this.BtnResxInsert_Click);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(615, 121);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(688, 469);
+            this.richTextBox1.TabIndex = 33;
+            this.richTextBox1.Text = "";
+            this.richTextBox1.WordWrap = false;
+            // 
+            // btnEntryDefautlValue
+            // 
+            this.btnEntryDefautlValue.Location = new System.Drawing.Point(433, 173);
+            this.btnEntryDefautlValue.Name = "btnEntryDefautlValue";
+            this.btnEntryDefautlValue.Size = new System.Drawing.Size(75, 23);
+            this.btnEntryDefautlValue.TabIndex = 34;
+            this.btnEntryDefautlValue.Text = "填入默认值";
+            this.btnEntryDefautlValue.UseVisualStyleBackColor = true;
+            this.btnEntryDefautlValue.Click += new System.EventHandler(this.BtnEntryDefautlValue_Click);
+            // 
+            // btnEntryComment
+            // 
+            this.btnEntryComment.Location = new System.Drawing.Point(514, 173);
+            this.btnEntryComment.Name = "btnEntryComment";
+            this.btnEntryComment.Size = new System.Drawing.Size(75, 23);
+            this.btnEntryComment.TabIndex = 34;
+            this.btnEntryComment.Text = "填入注释";
+            this.btnEntryComment.UseVisualStyleBackColor = true;
+            this.btnEntryComment.Click += new System.EventHandler(this.BtnEntryComment_Click);
             // 
             // CodeFilter_Resx
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(622, 659);
+            this.ClientSize = new System.Drawing.Size(1315, 602);
+            this.Controls.Add(this.btnEntryComment);
+            this.Controls.Add(this.btnEntryDefautlValue);
+            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.btnResxInsert);
             this.Controls.Add(this.cmbResx);
             this.Controls.Add(this.btnGuideBack);
             this.Controls.Add(this.cmbProject);
@@ -365,6 +416,10 @@
         private System.Windows.Forms.ComboBox cmbProject;
         private System.Windows.Forms.Button btnGuideBack;
         private System.Windows.Forms.ComboBox cmbResx;
+        private System.Windows.Forms.Button btnResxInsert;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button btnEntryDefautlValue;
+        private System.Windows.Forms.Button btnEntryComment;
     }
 }
 

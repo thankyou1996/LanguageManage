@@ -56,6 +56,7 @@
     <Compile Include="Class\DataOperationTests.cs" />
     <Compile Include="CodeFilter_ResxTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResxHelper\PubMethodTests.cs" />
     <Compile Include="ResxHelper\XmlUseTests.cs" />
     <Compile Include="Static\ResxHelperTests.cs" />
   </ItemGroup>

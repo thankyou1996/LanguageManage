@@ -87,6 +87,15 @@ namespace LanguagesManage
             set { fileLineDt = value; }
         }
 
+        List<string> codeViewSource = new List<string>();
+
+        public List<string> CodeViewSource
+        {
+            get { return codeViewSource; }
+            set { CodeViewSource = value; }
+        }
+
+
         /// <summary>
         /// 存放选中的字符串
         /// </summary>
@@ -170,6 +179,8 @@ namespace LanguagesManage
                     strNum = 0;
                     strContents.Clear();
                     fileLineDt.Rows.Clear();  //文件表数据清空
+                    CodeViewSource.Clear();
+                    CodeViewSource.Add(Environment.NewLine);
                     while ((lineStr = sr.ReadLine()) != null) //循环读取直至为空
                     {
                         this.lineNum++;
@@ -177,6 +188,7 @@ namespace LanguagesManage
                         //getStrsContent(filterNotes(lineStr), this.lineNum);
                         //filterNotes(lineStr);
                         filterContent(lineStr);
+                        CodeViewSource.Add(lineStr);
                     }
                 }
             }

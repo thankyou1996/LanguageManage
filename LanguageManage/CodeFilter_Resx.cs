@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LanguagesManage.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using static CommonMethod.CommonObject;
 
 namespace LanguagesManage
 {
@@ -66,6 +68,7 @@ namespace LanguagesManage
 
         #endregion
 
+        List<string> CodeViewSource = new List<string>();
         private void Form1_Load(object sender, EventArgs e)
         {
             asf.controlInitializeSize(this);
@@ -106,9 +109,10 @@ namespace LanguagesManage
             dgvStrContent.Columns[1].ReadOnly = true;
             dgvStrContent.Columns[2].ReadOnly = true;
             dgvStrContent.Columns[3].ReadOnly = true;
+            dgvStrContent.Columns[4].ReadOnly = true;
+            dgvStrContent.Columns[5].ReadOnly = true;
             dgvStrContent.Columns[0].Width = 60;
             dgvStrContent.Columns[2].Width = 60;
-            dgvStrContent.Columns[4].Width = 60;
         }
 
         /// <summary>
@@ -120,6 +124,8 @@ namespace LanguagesManage
             dtContent.Columns.Add("文件名");
             dtContent.Columns.Add("所在行");
             dtContent.Columns.Add("字符串内容");
+            dtContent.Columns.Add("翻译内容");
+            dtContent.Columns.Add("注释");
             dtBasicScriptInsert = dbOperat.getBasicScript().Tables[0].Clone();
             dtScriptInsert = dbOperat.getScriptClone().Tables[0].Clone();
             getAllType();
@@ -254,23 +260,11 @@ namespace LanguagesManage
                     object result = WaitWindow.WaitWindow.Show(this.WorkMethod, "操作中，请等待");
                     TimeSpan ts=(TimeSpan)result;
                     MessageBox.Show("录入完成"+Environment.NewLine +"耗时："+string.Format("{0}时{1}分{2}秒",ts.Hours,ts.Minutes,ts.Seconds)+"实际操作："+operatCount);
-                    //dbdtAddInfo("Admin");
-                    //if (dbOperat.updateBasicDt(dtBasicScriptInsert))
-                    //{
-
-                    //}
-                    //else
-                    //{
-                    //    MessageBox.Show("添加失败");
-                    //}
                 }
                 else
                 {
                     return;
                 }
-                //getAllBasicScriptS(); //添加语言库
-                //dbOperat.updateScriptDt(dtScriptInsert);
-                //MessageBox.Show("添加成功");
 
             }
             catch (Exception ex)
@@ -738,6 +732,7 @@ namespace LanguagesManage
             {
                 lstPath.Items.Add(codeFiles[i].FileName);
             }
+            ResxInit();
         }
 
         /// <summary>
@@ -816,19 +811,46 @@ namespace LanguagesManage
             {
                 int rowIndex = e.RowIndex;
                 string fileName = dgvStrContent.Rows[rowIndex].Cells[1].Value.ToString();
-                int codeFileIndex = getCodeFilesIndex(fileName);
-                CodeFilter.strDt = codeFiles[codeFileIndex].FileLineDt;
-                string lineNum = dgvStrContent.Rows[rowIndex].Cells[2].Value.ToString();
-                string content = dgvStrContent.Rows[rowIndex].Cells[3].Value.ToString();
-                StrDetailed detailed = new StrDetailed(lineNum, content,2);
-                detailed.Show();
+                CodeResxItem itme = GetCodeResxItem(dgvStrContent.Rows[rowIndex]);
+                FrmResxInfoSet frmResx = new FrmResxInfoSet();
+                frmResx.SetCodeResxItem(itme);
+                frmResx.Show();
             }
-            catch
+            catch(Exception ex)
             {
-                
+                MessageBox.Show(ex.ToString());
             }
         }
 
+        private void DgvStrContent_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            //try
+            //{
+            //    int rowIndex = e.RowIndex;
+            //    string fileName = dgvStrContent.Rows[rowIndex].Cells[1].Value.ToString();
+            //    CodeResxItem itme = GetCodeResxItem(dgvStrContent.Rows[rowIndex]);
+            //    SetCodeResxItem_CodeView(itme);
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.ToString());
+            //}
+        }
+
+        private void DgvStrContent_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int rowIndex = dgvStrContent.CurrentCell.RowIndex;
+                string fileName = dgvStrContent.Rows[rowIndex].Cells[1].Value.ToString();
+                CodeResxItem itme = GetCodeResxItem(dgvStrContent.Rows[rowIndex]);
+                SetCodeResxItem_CodeView(itme);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
         #region 筛选方法测试
 
 
@@ -915,12 +937,123 @@ namespace LanguagesManage
             readStr();
         }
 
+
+        public void ResxInit()
+        {
+            List<ComboBoxItem> lstSource = new List<ComboBoxItem>();
+            lstSource.Add(new ComboBoxItem(@"G:\Working\SK3000\Cu\CUCode\接警客户端\FormLogin.resx", "FormLogin.resx"));
+            lstSource.Add(new ComboBoxItem(@"G:\Working\SK3000\Cu\CUCode\接警客户端\FormLogin.en.resx", "FormLogin.en.resx"));
+            cmbResx.DataSource = lstSource;
+            cmbResx.ValueMember = "ItemValue";
+            cmbResx.DisplayMember = "ItemDisplay";
+        }
+
         public static List<string> GetResxFile(string strPath)
         {
             List<string> result = new List<string>();
-            //string Temp_strFileName = strPath.Substring(strPath.LastIndexOf("\\") + 1); //文件名
-            //var files =Directory.GetFiles
+           
             return result;
+        }
+
+        private void BtnResxInsert_Click(object sender, EventArgs e)
+        {
+            int checkCellIndex = dgvStrContent.Columns[dgvStrContent.ColumnCount - 1].Index;
+            List<CodeResxItem> Temp_lstSource = new List<CodeResxItem>();
+            string strPath = Convert.ToString(cmbResx.SelectedValue);
+            foreach (DataGridViewRow dgvr in dgvStrContent.Rows)
+            {
+                if (!Convert.ToBoolean(dgvr.Cells[checkCellIndex].Value))
+                {
+                    continue;
+                }
+                CodeResxItem item = GetCodeResxItem(dgvr);
+                item.ResxData.datatype = 1;
+                item.ResxData.xml_space = "preserve";
+                if (ResxHelper.XmlUse.GetDataValue(strPath, item.ResxData.Name) == null)
+                {
+                    //不重复添加
+                    ResxHelper.XmlUse.AppendDataNode(strPath, item.ResxData);
+                }
+            }
+        }
+
+
+
+
+        public CodeResxItem GetCodeResxItem(DataGridViewRow dr)
+        {
+            string fileName = dr.Cells[1].Value.ToString();
+            CodeFile codeFile = codeFiles.Find(item => item.FileName == fileName);
+            CodeResxItem itme = new CodeResxItem
+            {
+                Line = Convert.ToInt32(dr.Cells[2].Value),
+                CodeViewSource = codeFile.CodeViewSource,
+                ResxData = new ResxData
+                {
+                    Name = Convert.ToString(dr.Cells["字符串内容"].Value),
+                    Value = Convert.ToString(dr.Cells["翻译内容"].Value),
+                    Comment = Convert.ToString(dr.Cells["注释"].Value),
+                }
+            };
+            return itme;
+        }
+
+
+        public void SetCodeResxItem_CodeView(CodeResxItem item)
+        {
+            richTextBox1.Text = "";
+            List<string> CodeViewSource = item.CodeViewSource;
+            List<string> Temp_strValue = new List<string>();
+            int Temp_intIndex = item.Line - 15;
+            for (int i = 0; i < CodeViewSource.Count; i++)
+            {
+                if (Temp_intIndex < 1)
+                {
+                    continue;
+                }
+                if (Temp_intIndex > (item.Line + 15))
+                {
+                    return;
+                }
+                int lenght = richTextBox1.Text.Length;
+                richTextBox1.AppendText(Temp_intIndex + "|" + CodeViewSource[Temp_intIndex] + System.Environment.NewLine);
+                if (Temp_intIndex == item.Line)
+                {
+                    if (richTextBox1.Lines[i].Contains(item.ResxData.Name))
+                    {
+                        richTextBox1.Select(lenght + richTextBox1.Lines[i].IndexOf(item.ResxData.Name), item.ResxData.Name.Length);
+                        richTextBox1.SelectionColor = Color.Red;
+                    }
+                }
+                Temp_intIndex++;
+
+            }
+        }
+
+        private void BtnEntryDefautlValue_Click(object sender, EventArgs e)
+        {
+            int checkCellIndex = dgvStrContent.Columns[dgvStrContent.ColumnCount - 1].Index;
+            foreach (DataGridViewRow dgvr in dgvStrContent.Rows)
+            {
+                if (!Convert.ToBoolean(dgvr.Cells[checkCellIndex].Value))
+                {
+                    continue;
+                }
+                dgvr.Cells["翻译内容"].Value = dgvr.Cells["字符串内容"].Value;
+            }
+        }
+
+        private void BtnEntryComment_Click(object sender, EventArgs e)
+        {
+            int checkCellIndex = dgvStrContent.Columns[dgvStrContent.ColumnCount - 1].Index;
+            foreach (DataGridViewRow dgvr in dgvStrContent.Rows)
+            {
+                if (!Convert.ToBoolean(dgvr.Cells[checkCellIndex].Value))
+                {
+                    continue;
+                }
+                dgvr.Cells["注释"].Value = dgvr.Cells["字符串内容"].Value;
+            }
         }
     }
 }

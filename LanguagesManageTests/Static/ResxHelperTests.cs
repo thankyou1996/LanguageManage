@@ -11,18 +11,5 @@ namespace LanguagesManage.Static.Tests
     [TestClass()]
     public class ResxHelperTests
     {
-        [TestMethod()]
-        public void TestTest()
-        {
-            ResxHelper1.Test();
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void AppendDataNodeTest()
-        {
-            ResxHelper1.AppendDataNode();
-            Assert.Fail();
-        }
     }
 }

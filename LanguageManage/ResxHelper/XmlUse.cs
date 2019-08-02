@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LanguagesManage.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,7 +30,11 @@ namespace LanguagesManage.ResxHelper
             XmlNode nodeParent = xmlDoc.SelectSingleNode("root");   //父节点
             XmlElement node = xmlDoc.CreateElement("data");
             node.SetAttribute("name", data.Name);
-            node.SetAttribute("xml:space", "preserve");
+            node.SetAttribute("xml:space", data.xml_space);
+            if (data.datatype != 0)
+            {
+                node.SetAttribute("datatype", Convert.ToString(data.datatype));
+            }
             XmlElement nodeValue = xmlDoc.CreateElement("value");
             nodeValue.InnerXml = data.Value;
             node.AppendChild(nodeValue);
@@ -50,14 +55,49 @@ namespace LanguagesManage.ResxHelper
             XmlNode Temp_node = xmlDoc.SelectSingleNode("/root/data[@name='" + strName + "']");
             if (Temp_node != null)
             {
+                data = GetResxData(Temp_node);
+            }
+            return data;
+        }
+
+
+        public static List<ResxData> GetResxDataList(string strPath)
+        {
+            List<ResxData> result = new List<ResxData>();
+            XmlDocument xmlDoc = GetDocument(strPath);
+            XmlNode nodeParent = xmlDoc.SelectSingleNode("root");   //父节点
+            XmlNodeList Temp_node = nodeParent.SelectNodes("data");
+            foreach (XmlNode node in Temp_node)
+            {
+                result.Add(GetResxData(node));
+            }
+            return result;
+        }
+
+        public static ResxData GetResxData(XmlNode node)
+        {
+            ResxData data = null;
+            
+            if (node != null)
+            {
                 data = new ResxData();
-                data.Name = strName;
-                XmlNode nodeValue = Temp_node.SelectSingleNode("value");
+                data.Name = node.Attributes["name"].Value;
+                XmlAttribute atter = node.Attributes["xml:space"];
+                if (atter != null)
+                {
+                    data.xml_space = atter.Value;
+                }
+                XmlAttribute atter1 = node.Attributes["datatype"];
+                if (atter1 != null)
+                {
+                    data.datatype = Convert.ToInt32(atter1.Value);
+                }
+                XmlNode nodeValue = node.SelectSingleNode("value");
                 if (nodeValue != null)
                 {
                     data.Value = nodeValue.InnerText;
                 }
-                XmlNode nodeComment = Temp_node.SelectSingleNode("comment");
+                XmlNode nodeComment = node.SelectSingleNode("comment");
                 if (nodeComment != null)
                 {
                     data.Comment = nodeComment.InnerText;
@@ -65,5 +105,6 @@ namespace LanguagesManage.ResxHelper
             }
             return data;
         }
+
     }
 }

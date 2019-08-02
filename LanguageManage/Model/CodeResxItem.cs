@@ -4,32 +4,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LanguagesManage.ResxHelper
+namespace LanguagesManage.Model
 {
-    public class ResxData
+    public class CodeResxItem
     {
-        public string Name
+
+        public List<string> CodeViewSource
         {
             get;
             set;
         }
 
         /// <summary>
-        /// 值
+        /// 行数
         /// </summary>
-        public string Value
+        public int Line
         {
             get;
             set;
         }
 
-        /// <summary>
-        /// 注释
-        /// </summary>
-        public string Comment
+        public ResxData ResxData
         {
             get;
             set;
         }
+
     }
 }

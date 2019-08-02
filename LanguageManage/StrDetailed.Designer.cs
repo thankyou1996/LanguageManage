@@ -35,7 +35,7 @@
             // 
             this.richTextBox1.Location = new System.Drawing.Point(2, 12);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(690, 343);
+            this.richTextBox1.Size = new System.Drawing.Size(690, 372);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
             this.richTextBox1.WordWrap = false;
@@ -44,7 +44,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(694, 370);
+            this.ClientSize = new System.Drawing.Size(698, 500);
             this.Controls.Add(this.richTextBox1);
             this.Name = "StrDetailed";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
