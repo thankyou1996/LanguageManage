@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanguagesManage", "LanguageManage\LanguagesManage.csproj", "{65088B7C-3ACB-4150-9CA2-037C8EDFBB9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanguagesManageTests", "LanguagesManageTests\LanguagesManageTests.csproj", "{D965BC6C-B8B2-48A1-8FB3-AE1292E8D483}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65088B7C-3ACB-4150-9CA2-037C8EDFBB9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65088B7C-3ACB-4150-9CA2-037C8EDFBB9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65088B7C-3ACB-4150-9CA2-037C8EDFBB9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65088B7C-3ACB-4150-9CA2-037C8EDFBB9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D965BC6C-B8B2-48A1-8FB3-AE1292E8D483}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D965BC6C-B8B2-48A1-8FB3-AE1292E8D483}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D965BC6C-B8B2-48A1-8FB3-AE1292E8D483}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D965BC6C-B8B2-48A1-8FB3-AE1292E8D483}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

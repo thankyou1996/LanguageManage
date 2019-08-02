@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{65088B7C-3ACB-4150-9CA2-037C8EDFBB9C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LanguagesManage</RootNamespace>
+    <AssemblyName>LanguageManage</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WaitWindow, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\WaitWindow.dll</HintPath>
+    </Reference>
+    <Reference Include="WinFormPaging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\WinFormPaging.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class\AutoSizeFormClass.cs" />
+    <Compile Include="BasicScript.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BasicScript.Designer.cs">
+      <DependentUpon>BasicScript.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\CodeFile.cs" />
+    <Compile Include="CodeFilter_Resx.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CodeFilter_Resx.Designer.cs">
+      <DependentUpon>CodeFilter_Resx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GuideBack.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GuideBack.Designer.cs">
+      <DependentUpon>GuideBack.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CodeFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CodeFilter.Designer.cs">
+      <DependentUpon>CodeFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\Common.cs" />
+    <Compile Include="dbConn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dbConn.Designer.cs">
+      <DependentUpon>dbConn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Project.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Project.Designer.cs">
+      <DependentUpon>Project.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\UseLanguageXml.cs" />
+    <Compile Include="Class\DataOperation.cs" />
+    <Compile Include="Class\DBHelpSQL.cs" />
+    <Compile Include="Class\ErrorLog.cs" />
+    <Compile Include="ExportXml.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExportXml.Designer.cs">
+      <DependentUpon>ExportXml.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExportXml2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExportXml2.Designer.cs">
+      <DependentUpon>ExportXml2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\FormContrl.cs" />
+    <Compile Include="GuideBackPreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GuideBackPreview.Designer.cs">
+      <DependentUpon>GuideBackPreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Language.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Language.Designer.cs">
+      <DependentUpon>Language.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\LanguageGet.cs" />
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Position.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Position.Designer.cs">
+      <DependentUpon>Position.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResxHelper\ResxData.cs" />
+    <Compile Include="ResxHelper\XmlUse.cs" />
+    <Compile Include="ScriptManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScriptManage.Designer.cs">
+      <DependentUpon>ScriptManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SetConfig.cs" />
+    <Compile Include="SetUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetUp.Designer.cs">
+      <DependentUpon>SetUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Static\ResxHelper1.cs" />
+    <Compile Include="StrDetailed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StrDetailed.Designer.cs">
+      <DependentUpon>StrDetailed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="test.Designer.cs">
+      <DependentUpon>test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Type.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Type.Designer.cs">
+      <DependentUpon>Type.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpLanguage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpLanguage.Designer.cs">
+      <DependentUpon>UpLanguage.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="BasicScript.resx">
+      <DependentUpon>BasicScript.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CodeFilter_Resx.resx">
+      <DependentUpon>CodeFilter_Resx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dbConn.resx">
+      <DependentUpon>dbConn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GuideBack.resx">
+      <DependentUpon>GuideBack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CodeFilter.resx">
+      <DependentUpon>CodeFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExportXml.resx">
+      <DependentUpon>ExportXml.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExportXml2.resx">
+      <DependentUpon>ExportXml2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GuideBackPreview.resx">
+      <DependentUpon>GuideBackPreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Language.resx">
+      <DependentUpon>Language.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Position.resx">
+      <DependentUpon>Position.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project.resx">
+      <DependentUpon>Project.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="ScriptManage.resx">
+      <DependentUpon>ScriptManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetUp.resx">
+      <DependentUpon>SetUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StrDetailed.resx">
+      <DependentUpon>StrDetailed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="test.resx">
+      <DependentUpon>test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Type.resx">
+      <DependentUpon>Type.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpLanguage.resx">
+      <DependentUpon>UpLanguage.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="WaitWindow.dll" />
+    <Content Include="WinFormPaging.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
