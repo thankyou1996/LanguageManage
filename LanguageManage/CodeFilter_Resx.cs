@@ -917,10 +917,10 @@ namespace LanguagesManage
 
         public static List<string> GetResxFile(string strPath)
         {
-            //List<string> result = new List<string>();
+            List<string> result = new List<string>();
             //string Temp_strFileName = strPath.Substring(strPath.LastIndexOf("\\") + 1); //文件名
             //var files =Directory.GetFiles
-            //return result;
+            return result;
         }
     }
 }
