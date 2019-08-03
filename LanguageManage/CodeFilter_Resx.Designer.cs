@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvStrContent = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.lblStrNum = new System.Windows.Forms.Label();
@@ -56,6 +56,7 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.btnEntryDefautlValue = new System.Windows.Forms.Button();
             this.btnEntryComment = new System.Windows.Forms.Button();
+            this.chkReplaced = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStrContent)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,8 +65,8 @@
             this.dgvStrContent.AllowUserToAddRows = false;
             this.dgvStrContent.AllowUserToDeleteRows = false;
             this.dgvStrContent.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dgvStrContent.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.dgvStrContent.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvStrContent.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvStrContent.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.dgvStrContent.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -113,7 +114,7 @@
             this.chkOnlyChines.AutoSize = true;
             this.chkOnlyChines.Checked = true;
             this.chkOnlyChines.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkOnlyChines.Location = new System.Drawing.Point(122, 121);
+            this.chkOnlyChines.Location = new System.Drawing.Point(68, 121);
             this.chkOnlyChines.Name = "chkOnlyChines";
             this.chkOnlyChines.Size = new System.Drawing.Size(60, 16);
             this.chkOnlyChines.TabIndex = 12;
@@ -176,7 +177,7 @@
             // chkControl
             // 
             this.chkControl.AutoSize = true;
-            this.chkControl.Location = new System.Drawing.Point(242, 121);
+            this.chkControl.Location = new System.Drawing.Point(188, 121);
             this.chkControl.Name = "chkControl";
             this.chkControl.Size = new System.Drawing.Size(72, 16);
             this.chkControl.TabIndex = 19;
@@ -251,7 +252,7 @@
             // chkSql
             // 
             this.chkSql.AutoSize = true;
-            this.chkSql.Location = new System.Drawing.Point(320, 121);
+            this.chkSql.Location = new System.Drawing.Point(266, 121);
             this.chkSql.Name = "chkSql";
             this.chkSql.Size = new System.Drawing.Size(66, 16);
             this.chkSql.TabIndex = 26;
@@ -262,7 +263,7 @@
             // chkFontSet
             // 
             this.chkFontSet.AutoSize = true;
-            this.chkFontSet.Location = new System.Drawing.Point(188, 121);
+            this.chkFontSet.Location = new System.Drawing.Point(134, 121);
             this.chkFontSet.Name = "chkFontSet";
             this.chkFontSet.Size = new System.Drawing.Size(48, 16);
             this.chkFontSet.TabIndex = 27;
@@ -273,7 +274,7 @@
             // chkImageSet
             // 
             this.chkImageSet.AutoSize = true;
-            this.chkImageSet.Location = new System.Drawing.Point(392, 121);
+            this.chkImageSet.Location = new System.Drawing.Point(338, 121);
             this.chkImageSet.Name = "chkImageSet";
             this.chkImageSet.Size = new System.Drawing.Size(72, 16);
             this.chkImageSet.TabIndex = 28;
@@ -348,11 +349,22 @@
             this.btnEntryComment.UseVisualStyleBackColor = true;
             this.btnEntryComment.Click += new System.EventHandler(this.BtnEntryComment_Click);
             // 
+            // chkReplaced
+            // 
+            this.chkReplaced.AutoSize = true;
+            this.chkReplaced.Location = new System.Drawing.Point(416, 121);
+            this.chkReplaced.Name = "chkReplaced";
+            this.chkReplaced.Size = new System.Drawing.Size(108, 16);
+            this.chkReplaced.TabIndex = 35;
+            this.chkReplaced.Text = "过滤已替换文件";
+            this.chkReplaced.UseVisualStyleBackColor = true;
+            // 
             // CodeFilter_Resx
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1315, 602);
+            this.Controls.Add(this.chkReplaced);
             this.Controls.Add(this.btnEntryComment);
             this.Controls.Add(this.btnEntryDefautlValue);
             this.Controls.Add(this.richTextBox1);
@@ -420,6 +432,7 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button btnEntryDefautlValue;
         private System.Windows.Forms.Button btnEntryComment;
+        private System.Windows.Forms.CheckBox chkReplaced;
     }
 }
 

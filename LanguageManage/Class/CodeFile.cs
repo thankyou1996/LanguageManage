@@ -424,9 +424,6 @@ namespace LanguagesManage
                 //查找*/代表结束
                 lineStr = isEndMultiNote(lineStr);
             }
-
-            
-
             int singleNoteIndex = lineStr.IndexOf(@"//"); //单行注释索引
             int multiNoteIndex = lineStr.IndexOf(@"/*");  //多行注释索引
             int strIndex = lineStr.IndexOf('"');     //字符串索引
