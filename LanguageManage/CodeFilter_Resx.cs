@@ -819,7 +819,7 @@ namespace LanguagesManage
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                //MessageBox.Show(ex.ToString());
             }
         }
 
@@ -864,7 +864,7 @@ namespace LanguagesManage
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                //MessageBox.Show(ex.ToString());
             }
         }
         #region 筛选方法测试
