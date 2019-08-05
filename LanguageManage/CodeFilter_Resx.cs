@@ -813,6 +813,7 @@ namespace LanguagesManage
                 string fileName = dgvStrContent.Rows[rowIndex].Cells[1].Value.ToString();
                 CodeResxItem itme = GetCodeResxItem(dgvStrContent.Rows[rowIndex]);
                 FrmResxInfoSet frmResx = new FrmResxInfoSet();
+                frmResx.ResxInfoChangedEvent += FrmResx_ResxInfoChangedEvent;
                 frmResx.SetCodeResxItem(itme);
                 frmResx.Show();
             }
@@ -820,6 +821,21 @@ namespace LanguagesManage
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void FrmResx_ResxInfoChangedEvent(object sender, CodeResxItem value)
+        {
+            foreach (DataGridViewRow dgvr in dgvStrContent.Rows)
+            {
+                if (value.ID == Convert.ToInt32(dgvr.Cells["ID"].Value))
+                {
+
+                    dgvr.Cells["翻译内容"].Value = value.ResxData.Value;
+                    dgvr.Cells["注释"].Value = value.ResxData.Comment;
+                    break;
+                }
+            }
+            //throw new NotImplementedException();
         }
 
         private void DgvStrContent_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -941,18 +957,11 @@ namespace LanguagesManage
         public void ResxInit()
         {
             List<ComboBoxItem> lstSource = new List<ComboBoxItem>();
-            lstSource.Add(new ComboBoxItem(@"G:\Working\SK3000\Cu\CUCode\接警客户端\FormLogin.resx", "FormLogin.resx"));
-            lstSource.Add(new ComboBoxItem(@"G:\Working\SK3000\Cu\CUCode\接警客户端\FormLogin.en.resx", "FormLogin.en.resx"));
+            lstSource.Add(new ComboBoxItem(@"G:\Working\SK3000\Cu\CUCode\接警客户端\FormMain.resx", "FormMain.resx"));
+            lstSource.Add(new ComboBoxItem(@"G:\Working\SK3000\Cu\CUCode\接警客户端\FormMain.en.resx", "FormMain.en.resx"));
             cmbResx.DataSource = lstSource;
             cmbResx.ValueMember = "ItemValue";
             cmbResx.DisplayMember = "ItemDisplay";
-        }
-
-        public static List<string> GetResxFile(string strPath)
-        {
-            List<string> result = new List<string>();
-           
-            return result;
         }
 
         private void BtnResxInsert_Click(object sender, EventArgs e)
@@ -986,6 +995,7 @@ namespace LanguagesManage
             CodeFile codeFile = codeFiles.Find(item => item.FileName == fileName);
             CodeResxItem itme = new CodeResxItem
             {
+                ID= Convert.ToInt32(dr.Cells[0].Value),
                 Line = Convert.ToInt32(dr.Cells[2].Value),
                 CodeViewSource = codeFile.CodeViewSource,
                 ResxData = new ResxData

@@ -254,7 +254,10 @@ namespace LanguagesManage
             {
                 return false;
             }
-
+            if (Static.ParaSet.FilterResourcesGetStringEnable && frontStr.EndsWith("resources.GetString("))
+            {
+                return false;
+            }
             return true;
         }
 

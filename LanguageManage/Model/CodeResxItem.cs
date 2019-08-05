@@ -15,6 +15,12 @@ namespace LanguagesManage.Model
             set;
         }
 
+        public int ID
+        {
+            get;
+            set;
+        }
+
         /// <summary>
         /// 行数
         /// </summary>

@@ -9,13 +9,13 @@ namespace LanguagesManage.Static
     public class ParaSet
     {
 
-        private bool bolFilterResourcesGetStringEnable = true;
+        private static bool bolFilterResourcesGetStringEnable = true;
 
         /// <summary>
         /// 过滤代码中的已经替换的Reources.GetString的文本
         /// True 过滤  False不过滤
         /// </summary>
-        public bool FilterResourcesGetStringEnable
+        public static bool FilterResourcesGetStringEnable
         {
             get { return bolFilterResourcesGetStringEnable; }
             set { bolFilterResourcesGetStringEnable = value; }
