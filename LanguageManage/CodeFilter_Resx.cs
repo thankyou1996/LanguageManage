@@ -73,7 +73,7 @@ namespace LanguagesManage
         private void Form1_Load(object sender, EventArgs e)
         {
             asf.controlInitializeSize(this);
-            CodeFilter.onlyChinese = chkOnlyChines.Checked;
+            Static.ParaSet.onlyChinese = chkOnlyChines.Checked;
             dbOperat = new DataOperation();
             Init();
             try
@@ -664,7 +664,7 @@ namespace LanguagesManage
         /// <param name="e"></param>
         private void chkOnlyChines_CheckedChanged(object sender, EventArgs e)
         {
-            CodeFilter.onlyChinese = chkOnlyChines.Checked;
+            Static.ParaSet.onlyChinese = chkOnlyChines.Checked;
         }
 
         /// <summary>
@@ -674,7 +674,7 @@ namespace LanguagesManage
         /// <param name="e"></param>
         private void chkControl_CheckedChanged(object sender, EventArgs e)
         {
-            CodeFilter.controlName = chkControl.Checked;
+            Static.ParaSet.controlName = chkControl.Checked;
         }
 
         
@@ -685,7 +685,7 @@ namespace LanguagesManage
         /// <param name="e"></param>
         private void chkSql_CheckedChanged(object sender, EventArgs e)
         {
-            CodeFilter.sqlSentence = chkSql.Checked;
+            Static.ParaSet.sqlSentence = chkSql.Checked;
         }
 
         /// <summary>
@@ -695,7 +695,7 @@ namespace LanguagesManage
         /// <param name="e"></param>
         private void chkFontSet_CheckedChanged(object sender, EventArgs e)
         {
-            CodeFilter.fontSet = chkFontSet.Checked;
+            Static.ParaSet.fontSet = chkFontSet.Checked;
         }
 
         /// <summary>
@@ -705,7 +705,7 @@ namespace LanguagesManage
         /// <param name="e"></param>
         private void chkImageSet_CheckedChanged(object sender, EventArgs e)
         {
-            CodeFilter.imageSet = chkImageSet.Checked;
+            Static.ParaSet.imageSet = chkImageSet.Checked;
         }
         /// <summary>
         /// 替换字符串的选择
@@ -714,7 +714,7 @@ namespace LanguagesManage
         /// <param name="e"></param>
         private void rdoDb_CheckedChanged(object sender, EventArgs e)
         {
-            CodeFilter.dbText = rdoDb.Checked;
+            Static.ParaSet.dbText = rdoDb.Checked;
         }
 
         /// <summary>

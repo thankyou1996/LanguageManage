@@ -234,23 +234,23 @@ namespace LanguagesManage
                 return false;
             }
 
-            if (CodeFilter.onlyChinese && !strHasChinese(str)) //至显示中文
+            if (Static.ParaSet.onlyChinese && !strHasChinese(str)) //至显示中文
             {
                 return false;
             }
-            if (!CodeFilter.controlName && isControlName(frontStr)) //是否问控件名称
+            if (!Static.ParaSet.controlName && isControlName(frontStr)) //是否问控件名称
             {
                 return false;
             }
-            if (!CodeFilter.sqlSentence && isSql(str))  //判断是不是SQL语句
+            if (!Static.ParaSet.sqlSentence && isSql(str))  //判断是不是SQL语句
             {
                 return false;
             }
-            if (!CodeFilter.fontSet && isFontSet(frontStr))  //是否为字体设置
+            if (!Static.ParaSet.fontSet && isFontSet(frontStr))  //是否为字体设置
             {
                 return false;
             }
-            if (!CodeFilter.imageSet && isImageSet(frontStr))  //是否为图片设置
+            if (!Static.ParaSet.imageSet && isImageSet(frontStr))  //是否为图片设置
             {
                 return false;
             }
