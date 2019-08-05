@@ -11,7 +11,7 @@ namespace LanguagesManage
     public class CodeFile
     {
         /// <summary>
-        /// 文件路径
+        /// 文件路径  完整路径
         /// </summary>
         string filePath;
 

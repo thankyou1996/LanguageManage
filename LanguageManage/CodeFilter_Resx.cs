@@ -494,6 +494,7 @@ namespace LanguagesManage
         /// <param name="e"></param>
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            codeFiles.Clear();
             OpenFileDialog openFile = new OpenFileDialog();
             openFile.Multiselect = true; //设置是否可以选择多个文件
             openFile.InitialDirectory = lastOpenPath;   //设置默认路径（最后打开路径）
@@ -749,7 +750,7 @@ namespace LanguagesManage
             {
                 lstPath.Items.Add(codeFiles[i].FileName);
             }
-            ResxInit();
+            ResxInit(codeFiles[0].FilePath);
         }
 
         /// <summary>
@@ -957,6 +958,7 @@ namespace LanguagesManage
 
         private void LstPath_DragDrop(object sender, DragEventArgs e)
         {
+            codeFiles.Clear();
             string Temp_str = ((System.Array)e.Data.GetData(DataFormats.FileDrop)).GetValue(0).ToString();
             string Temp_strFileName = Temp_str.Substring(Temp_str.LastIndexOf("\\") + 1); //文件名
             CodeFile codeFile = new CodeFile(Temp_str, Temp_strFileName);
@@ -966,7 +968,7 @@ namespace LanguagesManage
         }
 
 
-        public void ResxInit()
+        public void ResxInit(string strPath)
         {
             List<ComboBoxItem> lstSource = new List<ComboBoxItem>();
             lstSource.Add(new ComboBoxItem(@"G:\Working\SK3000\Cu\CUCode\接警客户端\FormMain.resx", "FormMain.resx"));
