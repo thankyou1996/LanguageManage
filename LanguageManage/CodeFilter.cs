@@ -58,35 +58,8 @@ namespace LanguagesManage
         /// </summary>
         int[] typeIDs;
 
-        /// <summary>
-        /// 中文过滤
-        /// </summary>
-        public static  bool onlyChinese = false;
+        
 
-        /// <summary>
-        /// 控件名称过滤
-        /// </summary>
-        public static bool controlName = false;
-
-        /// <summary>
-        /// Sql语句过滤
-        /// </summary>
-        public static bool sqlSentence = false;
-
-        /// <summary>
-        /// 字体过滤
-        /// </summary>
-        public static bool fontSet = false;
-
-        /// <summary>
-        /// 图片设置过滤
-        /// </summary>
-        public static bool imageSet = false;
-
-        /// <summary>
-        /// 替换的字符串
-        /// </summary>
-        public static  bool dbText = true;
 
         public static DataTable strDt=new DataTable ();
 
@@ -100,7 +73,7 @@ namespace LanguagesManage
         private void Form1_Load(object sender, EventArgs e)
         {
             asf.controlInitializeSize(this);
-            onlyChinese = chkOnlyChines.Checked;
+            Static.ParaSet.onlyChinese = chkOnlyChines.Checked;
             dbOperat = new DataOperation();
             try
             {
@@ -684,7 +657,7 @@ namespace LanguagesManage
         /// <param name="e"></param>
         private void chkOnlyChines_CheckedChanged(object sender, EventArgs e)
         {
-            onlyChinese = chkOnlyChines.Checked;
+            Static.ParaSet.onlyChinese = chkOnlyChines.Checked;
         }
 
         /// <summary>
@@ -694,7 +667,7 @@ namespace LanguagesManage
         /// <param name="e"></param>
         private void chkControl_CheckedChanged(object sender, EventArgs e)
         {
-            controlName = chkControl.Checked;
+            Static.ParaSet.controlName = chkControl.Checked;
         }
 
         
@@ -705,7 +678,7 @@ namespace LanguagesManage
         /// <param name="e"></param>
         private void chkSql_CheckedChanged(object sender, EventArgs e)
         {
-            sqlSentence = chkSql.Checked;
+            Static.ParaSet.sqlSentence = chkSql.Checked;
         }
 
         /// <summary>
@@ -715,7 +688,7 @@ namespace LanguagesManage
         /// <param name="e"></param>
         private void chkFontSet_CheckedChanged(object sender, EventArgs e)
         {
-            fontSet = chkFontSet.Checked;
+            Static.ParaSet.fontSet = chkFontSet.Checked;
         }
 
         /// <summary>
@@ -725,7 +698,7 @@ namespace LanguagesManage
         /// <param name="e"></param>
         private void chkImageSet_CheckedChanged(object sender, EventArgs e)
         {
-            imageSet = chkImageSet.Checked;
+            Static.ParaSet.imageSet = chkImageSet.Checked;
         }
         /// <summary>
         /// 替换字符串的选择
@@ -734,7 +707,7 @@ namespace LanguagesManage
         /// <param name="e"></param>
         private void rdoDb_CheckedChanged(object sender, EventArgs e)
         {
-            dbText = rdoDb.Checked;
+            Static.ParaSet.dbText = rdoDb.Checked;
         }
 
         /// <summary>

@@ -13,6 +13,20 @@ namespace LanguagesManage
             InitializeComponent();
         }
 
+        public delegate void ResxInfoChangedDelegate(object sender, CodeResxItem value);
+
+        public event ResxInfoChangedDelegate ResxInfoChangedEvent;
+
+        private void ResxInfoChange(CodeResxItem value)
+        {
+            if (ResxInfoChangedEvent != null)
+            {
+                ResxInfoChangedEvent(this, value);
+            }
+        }
+
+
+
         int intDisplayNum = 10;
         CodeResxItem CurrentCodeResx;
 
@@ -68,7 +82,10 @@ namespace LanguagesManage
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            
+            CurrentCodeResx.ResxData.Value = txtValue.Text;
+            CurrentCodeResx.ResxData.Comment = txtComment.Text;
+            ResxInfoChange(CurrentCodeResx);
+            this.Close();
         }
     }
 }

@@ -43,5 +43,19 @@ namespace LanguagesManage.ResxHelper.Tests
             List<ResxData> Temp_source = XmlUse.GetResxDataList(strFilePath);
             Assert.AreEqual(Temp_source.Count(item => item.datatype == 1), 1);
         }
+
+        [TestMethod()]
+        public void UpdataDataNodeTest()
+        {
+            string strFilePath = @"C:\Users\hongdongcheng\Desktop\test\FormLogin.en.resx";
+            ResxData data = new ResxData
+            {
+                Name= "取消",
+                Value="Cancel",
+                Comment="取消"
+            };
+            XmlUse.UpdataDataNode(strFilePath, data);
+            Assert.Fail();
+        }
     }
 }

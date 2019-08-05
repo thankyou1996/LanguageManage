@@ -23,10 +23,34 @@ namespace LanguagesManage.ResxHelper
         }
 
 
+        #region 增
+
+
+
         public static bool AppendDataNode(string strPath, ResxData data)
         {
             string strFilePath = strPath;
             XmlDocument xmlDoc = GetDocument(strPath);
+            AppendDataNode(xmlDoc, data);
+            xmlDoc.Save(strFilePath);
+            return true;
+        }
+
+        public static bool AppendDataNode(string strPath, List<ResxData> lstData)
+        {
+            string strFilePath = strPath;
+            XmlDocument xmlDoc = GetDocument(strPath);
+            foreach (ResxData data in lstData)
+            {
+                AppendDataNode(xmlDoc, data);
+            }
+            xmlDoc.Save(strFilePath);
+            return true;
+        }
+
+
+        private static bool AppendDataNode(XmlDocument xmlDoc, ResxData data)
+        {
             XmlNode nodeParent = xmlDoc.SelectSingleNode("root");   //父节点
             XmlElement node = xmlDoc.CreateElement("data");
             node.SetAttribute("name", data.Name);
@@ -42,10 +66,31 @@ namespace LanguagesManage.ResxHelper
             nodeComment.InnerXml = data.Comment;
             node.AppendChild(nodeComment);
             nodeParent.AppendChild(node);
-            xmlDoc.Save(strFilePath);
+            
             return true;
         }
 
+        #endregion
+
+
+        #region 改
+
+        public static bool UpdataDataNode(string strPath,ResxData data)
+        {
+            bool bolResult = false;
+            XmlDocument xmlDoc = GetDocument(strPath);
+            XmlNode Temp_node = xmlDoc.SelectSingleNode("/root/data[@name='" + data.Name + "']");
+            XmlNode nodeValue =Temp_node.SelectSingleNode("value");
+            nodeValue.InnerXml = data.Value;
+            XmlNode nodeComment = Temp_node.SelectSingleNode("comment");
+            nodeComment.InnerXml = data.Comment;
+            xmlDoc.Save(strPath);
+            return bolResult;
+        }
+
+
+
+        #endregion
 
         public static ResxData GetDataValue(string strPath,string strName)
         {
@@ -105,6 +150,10 @@ namespace LanguagesManage.ResxHelper
             }
             return data;
         }
+
+
+
+
 
     }
 }
