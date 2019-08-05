@@ -833,12 +833,13 @@ namespace LanguagesManage
                 }
                 //TODO:将字符串中的内容进行赋值(赋值到表中进行选择)
                 scriptID = dbOperat.existsBasicScript(strs[i], this.positionID);
+                string Temp_strValue = strs[i];
                 if (scriptID == 0)
                 {
-                    strs[i] = '"' + strs[i] + '"';
+                    //strs[i] = '"' + strs[i] + '"';
+                    strs[i] = "resources.GetString(\"" + Temp_strValue + "\")";
                     continue;
                 }
-                string Temp_strValue = strs[i];
 
                 //if (CodeFilter.dbText)  //判断选择转换的是xml或者是DB
                 //{
