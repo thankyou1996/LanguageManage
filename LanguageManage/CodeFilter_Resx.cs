@@ -970,12 +970,21 @@ namespace LanguagesManage
 
         public void ResxInit(string strPath)
         {
-            List<ComboBoxItem> lstSource = new List<ComboBoxItem>();
-            lstSource.Add(new ComboBoxItem(@"G:\Working\SK3000\Cu\CUCode\接警客户端\FormMain.resx", "FormMain.resx"));
-            lstSource.Add(new ComboBoxItem(@"G:\Working\SK3000\Cu\CUCode\接警客户端\FormMain.en.resx", "FormMain.en.resx"));
+           List<ComboBoxItem> lstSource = new List<ComboBoxItem>();
+            //  lstSource.Add(new ComboBoxItem(@"G:\Working\SK3000\Cu\CUCode\接警客户端\FormMain.resx", "FormMain.resx"));
+            //  lstSource.Add(new ComboBoxItem(@"G:\Working\SK3000\Cu\CUCode\接警客户端\FormMain.en.resx", "FormMain.en.resx"));
+            List<string> xxxx = ResxHelper.PubMethod.GetResxList(strPath);
+
+            foreach (string s in xxxx)
+            {
+                lstSource.Add(new ComboBoxItem(s, Path.GetFileName(s)));
+            }
+
+          
+
             cmbResx.DataSource = lstSource;
-            cmbResx.ValueMember = "ItemValue";
-            cmbResx.DisplayMember = "ItemDisplay";
+           cmbResx.ValueMember = "ItemValue";
+          cmbResx.DisplayMember = "ItemDisplay";
         }
 
         private void BtnResxInsert_Click(object sender, EventArgs e)

@@ -41,17 +41,17 @@ namespace LanguagesManage
             //主程序
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            object result = WaitWindow.WaitWindow.Show(WorkMethod, "数据库连接中");
-            if (flag)
-            {
-                //Application.Run(new Language());
-                Application.Run(new CodeFilter_Resx());
+            //object result = WaitWindow.WaitWindow.Show(WorkMethod, "数据库连接中");
+            //if (flag)
+            //{
+            //Application.Run(new Language());
+            Application.Run(new CodeFilter_Resx());
                 //Application.Run(new FrmTest());
-            }
-            else
-            {
-                MessageBox.Show(result.ToString());
-            }
+            //}
+            //else
+            //{
+            //    MessageBox.Show(result.ToString());
+            //}
 
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);

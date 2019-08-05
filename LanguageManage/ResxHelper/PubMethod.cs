@@ -21,10 +21,10 @@ namespace LanguagesManage.ResxHelper
         
             // 参数:E:\c#\LanguageManage\Login.cs
             //1.获取文件夹路径  获取到  E:\c#\LanguageManage
-            string Temp_str = strPath.Substring(0,strPath.LastIndexOf("\\"));
-
+            string Temp_str = Path.GetDirectoryName(strPath);
             //1.1 获取文件名称    Login.
-
+            // string filename = Path.GetFileName(strPath);
+            string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(strPath) + ".";
 
 
             //2.获取文件夹下的所有文件
@@ -35,15 +35,11 @@ namespace LanguagesManage.ResxHelper
             //3.遍历进行配置
             foreach (FileInfo item in files)
             {
-                if (item.Name.StartsWith("lo") && item.Name.EndsWith("gin")) 
+                if (item.Name.StartsWith(fileNameWithoutExtension) && item.Name.EndsWith("resx")) 
                 {
-                    result.add();
+                    result.Add(item.FullName);
                 }
             }
-
-
-
-
             return result; 
         }  
     }

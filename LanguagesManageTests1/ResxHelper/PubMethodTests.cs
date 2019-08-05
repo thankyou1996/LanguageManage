@@ -17,7 +17,7 @@ namespace LanguagesManage.ResxHelper.Tests
             string strPath = @"E:\c#\LanguageManage\Login.cs";
             //List<string> result = PubMethod.GetResxList(strPath);
             List<string> result = PubMethod.GetResxList(strPath);
-            Assert.AreEqual(result[0],".resx");
+            Assert.AreEqual(result[0],2);
         }
     }
 }
