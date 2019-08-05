@@ -861,21 +861,6 @@ namespace LanguagesManage
         }
 
 
-        private void DgvStrContent_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            //try
-            //{
-            //    int rowIndex = e.RowIndex;
-            //    string fileName = dgvStrContent.Rows[rowIndex].Cells[1].Value.ToString();
-            //    CodeResxItem itme = GetCodeResxItem(dgvStrContent.Rows[rowIndex]);
-            //    SetCodeResxItem_CodeView(itme);
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.ToString());
-            //}
-        }
-
         private void DgvStrContent_SelectionChanged(object sender, EventArgs e)
         {
             try
@@ -1099,5 +1084,7 @@ namespace LanguagesManage
             CurrentResxItem.ResxData.Comment = txtComment.Text;
             SaveResxInfo(CurrentResxItem);
         }
+
+        
     }
 }
