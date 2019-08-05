@@ -81,6 +81,12 @@
     <Compile Include="FrmResxInfoSet.Designer.cs">
       <DependentUpon>FrmResxInfoSet.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTest.Designer.cs">
+      <DependentUpon>FrmTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="GuideBack.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +210,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmResxInfoSet.resx">
       <DependentUpon>FrmResxInfoSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTest.resx">
+      <DependentUpon>FrmTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GuideBack.resx">
       <DependentUpon>GuideBack.cs</DependentUpon>

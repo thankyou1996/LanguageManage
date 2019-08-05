@@ -46,6 +46,7 @@ namespace LanguagesManage
             {
                 //Application.Run(new Language());
                 Application.Run(new CodeFilter_Resx());
+                //Application.Run(new FrmTest());
             }
             else
             {
@@ -61,7 +62,7 @@ namespace LanguagesManage
         private static void WorkMethod(object sender, WaitWindow.WaitWindowEventArgs e)
         {
             switch (DataOperation.dbExists())
-            { 
+            {
                 case -1:
                     e.Result = "数据库连接异常\n请检查数据库服务是否开启,数据库连接字符串是否正确";
                     flag = false;

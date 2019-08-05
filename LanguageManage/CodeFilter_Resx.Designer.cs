@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvStrContent = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.lblStrNum = new System.Windows.Forms.Label();
@@ -57,6 +57,13 @@
             this.btnEntryDefautlValue = new System.Windows.Forms.Button();
             this.btnEntryComment = new System.Windows.Forms.Button();
             this.chkReplaced = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtValue = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtComment = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.cmbCodeViewLineSet = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStrContent)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,17 +72,17 @@
             this.dgvStrContent.AllowUserToAddRows = false;
             this.dgvStrContent.AllowUserToDeleteRows = false;
             this.dgvStrContent.AllowUserToResizeRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.dgvStrContent.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvStrContent.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvStrContent.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvStrContent.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.dgvStrContent.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvStrContent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStrContent.Location = new System.Drawing.Point(12, 202);
+            this.dgvStrContent.Location = new System.Drawing.Point(12, 218);
             this.dgvStrContent.Name = "dgvStrContent";
             this.dgvStrContent.RowTemplate.Height = 23;
             this.dgvStrContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStrContent.Size = new System.Drawing.Size(597, 388);
+            this.dgvStrContent.Size = new System.Drawing.Size(597, 372);
             this.dgvStrContent.TabIndex = 3;
             this.dgvStrContent.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvStrContent_CellMouseClick);
             this.dgvStrContent.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
@@ -101,7 +108,7 @@
             // 
             // btnAllSelected
             // 
-            this.btnAllSelected.Location = new System.Drawing.Point(206, 173);
+            this.btnAllSelected.Location = new System.Drawing.Point(542, 189);
             this.btnAllSelected.Name = "btnAllSelected";
             this.btnAllSelected.Size = new System.Drawing.Size(63, 23);
             this.btnAllSelected.TabIndex = 9;
@@ -124,7 +131,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(275, 173);
+            this.button1.Location = new System.Drawing.Point(530, 122);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 13;
@@ -149,14 +156,14 @@
             this.lstPath.ItemHeight = 12;
             this.lstPath.Location = new System.Drawing.Point(12, 43);
             this.lstPath.Name = "lstPath";
-            this.lstPath.Size = new System.Drawing.Size(667, 76);
+            this.lstPath.Size = new System.Drawing.Size(410, 76);
             this.lstPath.TabIndex = 15;
             this.lstPath.DragDrop += new System.Windows.Forms.DragEventHandler(this.LstPath_DragDrop);
             this.lstPath.DragEnter += new System.Windows.Forms.DragEventHandler(this.LstPath_DragEnter);
             // 
             // btnRemoveAll
             // 
-            this.btnRemoveAll.Location = new System.Drawing.Point(698, 76);
+            this.btnRemoveAll.Location = new System.Drawing.Point(428, 72);
             this.btnRemoveAll.Name = "btnRemoveAll";
             this.btnRemoveAll.Size = new System.Drawing.Size(71, 27);
             this.btnRemoveAll.TabIndex = 17;
@@ -166,7 +173,7 @@
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(694, 43);
+            this.btnRemove.Location = new System.Drawing.Point(428, 43);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(71, 27);
             this.btnRemove.TabIndex = 18;
@@ -197,7 +204,7 @@
             // 
             // btnReplaces
             // 
-            this.btnReplaces.Location = new System.Drawing.Point(12, 173);
+            this.btnReplaces.Location = new System.Drawing.Point(529, 147);
             this.btnReplaces.Name = "btnReplaces";
             this.btnReplaces.Size = new System.Drawing.Size(75, 23);
             this.btnReplaces.TabIndex = 21;
@@ -207,7 +214,7 @@
             // 
             // btnFlushs
             // 
-            this.btnFlushs.Location = new System.Drawing.Point(356, 173);
+            this.btnFlushs.Location = new System.Drawing.Point(505, 76);
             this.btnFlushs.Name = "btnFlushs";
             this.btnFlushs.Size = new System.Drawing.Size(71, 23);
             this.btnFlushs.TabIndex = 22;
@@ -217,7 +224,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(800, 43);
+            this.btnAdd.Location = new System.Drawing.Point(505, 43);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(71, 27);
             this.btnAdd.TabIndex = 23;
@@ -228,7 +235,7 @@
             // rdoXml
             // 
             this.rdoXml.AutoSize = true;
-            this.rdoXml.Location = new System.Drawing.Point(278, 12);
+            this.rdoXml.Location = new System.Drawing.Point(253, 15);
             this.rdoXml.Name = "rdoXml";
             this.rdoXml.Size = new System.Drawing.Size(65, 16);
             this.rdoXml.TabIndex = 24;
@@ -240,7 +247,7 @@
             // 
             this.rdoDb.AutoSize = true;
             this.rdoDb.Checked = true;
-            this.rdoDb.Location = new System.Drawing.Point(213, 12);
+            this.rdoDb.Location = new System.Drawing.Point(188, 15);
             this.rdoDb.Name = "rdoDb";
             this.rdoDb.Size = new System.Drawing.Size(59, 16);
             this.rdoDb.TabIndex = 25;
@@ -286,15 +293,15 @@
             // 
             this.cmbProject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProject.FormattingEnabled = true;
-            this.cmbProject.Location = new System.Drawing.Point(358, 11);
+            this.cmbProject.Location = new System.Drawing.Point(333, 14);
             this.cmbProject.Name = "cmbProject";
-            this.cmbProject.Size = new System.Drawing.Size(251, 20);
+            this.cmbProject.Size = new System.Drawing.Size(193, 20);
             this.cmbProject.TabIndex = 29;
             this.cmbProject.SelectedIndexChanged += new System.EventHandler(this.cmbProject_SelectedIndexChanged);
             // 
             // btnGuideBack
             // 
-            this.btnGuideBack.Location = new System.Drawing.Point(693, 12);
+            this.btnGuideBack.Location = new System.Drawing.Point(532, 12);
             this.btnGuideBack.Name = "btnGuideBack";
             this.btnGuideBack.Size = new System.Drawing.Size(72, 23);
             this.btnGuideBack.TabIndex = 30;
@@ -312,7 +319,7 @@
             // 
             // btnResxInsert
             // 
-            this.btnResxInsert.Location = new System.Drawing.Point(102, 173);
+            this.btnResxInsert.Location = new System.Drawing.Point(206, 141);
             this.btnResxInsert.Name = "btnResxInsert";
             this.btnResxInsert.Size = new System.Drawing.Size(98, 23);
             this.btnResxInsert.TabIndex = 32;
@@ -322,16 +329,16 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(615, 121);
+            this.richTextBox1.Location = new System.Drawing.Point(615, 12);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(688, 469);
+            this.richTextBox1.Size = new System.Drawing.Size(688, 494);
             this.richTextBox1.TabIndex = 33;
             this.richTextBox1.Text = "";
             this.richTextBox1.WordWrap = false;
             // 
             // btnEntryDefautlValue
             // 
-            this.btnEntryDefautlValue.Location = new System.Drawing.Point(433, 173);
+            this.btnEntryDefautlValue.Location = new System.Drawing.Point(382, 189);
             this.btnEntryDefautlValue.Name = "btnEntryDefautlValue";
             this.btnEntryDefautlValue.Size = new System.Drawing.Size(75, 23);
             this.btnEntryDefautlValue.TabIndex = 34;
@@ -341,7 +348,7 @@
             // 
             // btnEntryComment
             // 
-            this.btnEntryComment.Location = new System.Drawing.Point(514, 173);
+            this.btnEntryComment.Location = new System.Drawing.Point(463, 189);
             this.btnEntryComment.Name = "btnEntryComment";
             this.btnEntryComment.Size = new System.Drawing.Size(75, 23);
             this.btnEntryComment.TabIndex = 34;
@@ -359,11 +366,80 @@
             this.chkReplaced.Text = "过滤已替换文件";
             this.chkReplaced.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(615, 509);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(29, 12);
+            this.label2.TabIndex = 36;
+            this.label2.Text = "内容";
+            // 
+            // txtValue
+            // 
+            this.txtValue.Location = new System.Drawing.Point(617, 525);
+            this.txtValue.Multiline = true;
+            this.txtValue.Name = "txtValue";
+            this.txtValue.Size = new System.Drawing.Size(172, 65);
+            this.txtValue.TabIndex = 37;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(798, 509);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(29, 12);
+            this.label3.TabIndex = 36;
+            this.label3.Text = "注释";
+            // 
+            // txtComment
+            // 
+            this.txtComment.Location = new System.Drawing.Point(800, 525);
+            this.txtComment.Multiline = true;
+            this.txtComment.Name = "txtComment";
+            this.txtComment.Size = new System.Drawing.Size(261, 65);
+            this.txtComment.TabIndex = 38;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1067, 525);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(97, 65);
+            this.button2.TabIndex = 39;
+            this.button2.Text = "保存";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            // 
+            // cmbCodeViewLineSet
+            // 
+            this.cmbCodeViewLineSet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCodeViewLineSet.FormattingEnabled = true;
+            this.cmbCodeViewLineSet.Location = new System.Drawing.Point(1226, 525);
+            this.cmbCodeViewLineSet.Name = "cmbCodeViewLineSet";
+            this.cmbCodeViewLineSet.Size = new System.Drawing.Size(72, 20);
+            this.cmbCodeViewLineSet.TabIndex = 40;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(1191, 528);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 12);
+            this.label4.TabIndex = 41;
+            this.label4.Text = "行数";
+            // 
             // CodeFilter_Resx
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1315, 602);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.cmbCodeViewLineSet);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.txtComment);
+            this.Controls.Add(this.txtValue);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.chkReplaced);
             this.Controls.Add(this.btnEntryComment);
             this.Controls.Add(this.btnEntryDefautlValue);
@@ -433,6 +509,13 @@
         private System.Windows.Forms.Button btnEntryDefautlValue;
         private System.Windows.Forms.Button btnEntryComment;
         private System.Windows.Forms.CheckBox chkReplaced;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtValue;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtComment;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox cmbCodeViewLineSet;
+        private System.Windows.Forms.Label label4;
     }
 }
 

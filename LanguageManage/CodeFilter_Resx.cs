@@ -15,6 +15,7 @@ namespace LanguagesManage
 {
     public partial class CodeFilter_Resx : Form
     {
+        CodeResxItem CurrentResxItem = null;
         public CodeFilter_Resx()
         {
             InitializeComponent();
@@ -74,6 +75,7 @@ namespace LanguagesManage
             asf.controlInitializeSize(this);
             CodeFilter.onlyChinese = chkOnlyChines.Checked;
             dbOperat = new DataOperation();
+            Init();
             try
             {
                 dtInitlal();
@@ -94,16 +96,30 @@ namespace LanguagesManage
             }
         }
 
+        public void Init()
+        {
+            List<ComboBoxItem> lstSource = new List<ComboBoxItem>();
+            for (int i = 1; i < 10; i++)
+            {
+                lstSource.Add(new ComboBoxItem((i * 10), (i * 10) + "行"));
+            }
+            cmbCodeViewLineSet.DataSource = lstSource;
+            cmbCodeViewLineSet.ValueMember = "ItemValue";
+            cmbCodeViewLineSet.DisplayMember = "ItemDisplay";
+            cmbCodeViewLineSet.SelectedValue = 20;
+        }
+
+
         /// <summary>
         /// dgv的设置
         /// </summary>
         public void dgvSetup()
         {
             dgvStrContent.DataSource = dtContent;
-            DataGridViewCheckBoxColumn checkCol = new DataGridViewCheckBoxColumn();
-            checkCol.HeaderText = "选择";
-            //checkCol.SortMode = DataGridViewColumnSortMode.Automatic;
-            dgvStrContent.Columns.Add(checkCol);
+            //DataGridViewCheckBoxColumn checkCol = new DataGridViewCheckBoxColumn();
+            //checkCol.HeaderText = "选择";
+            ////checkCol.SortMode = DataGridViewColumnSortMode.Automatic;
+            //dgvStrContent.Columns.Add(checkCol);
             this.dgvStrContent.Columns[3].SortMode = dgvStrContent.Columns[1].SortMode;
             dgvStrContent.Columns[0].ReadOnly = true;
             dgvStrContent.Columns[1].ReadOnly = true;
@@ -126,6 +142,7 @@ namespace LanguagesManage
             dtContent.Columns.Add("字符串内容");
             dtContent.Columns.Add("翻译内容");
             dtContent.Columns.Add("注释");
+            dtContent.Columns.Add("Selected", typeof(bool));
             dtBasicScriptInsert = dbOperat.getBasicScript().Tables[0].Clone();
             dtScriptInsert = dbOperat.getScriptClone().Tables[0].Clone();
             getAllType();
@@ -756,6 +773,7 @@ namespace LanguagesManage
                     dr["文件名"] = codeFiles[i].FileName;
                     dr["所在行"] = codeFiles[i].StrContents[j].lineNum;
                     dr["字符串内容"] = codeFiles[i].StrContents[j].strContent;
+                    dr["Selected"] = false;
                     dtContent.Rows.Add(dr);
                 }
             }
@@ -825,6 +843,11 @@ namespace LanguagesManage
 
         private void FrmResx_ResxInfoChangedEvent(object sender, CodeResxItem value)
         {
+            SaveResxInfo(value);
+        }
+
+        public void SaveResxInfo(CodeResxItem value)
+        {
             foreach (DataGridViewRow dgvr in dgvStrContent.Rows)
             {
                 if (value.ID == Convert.ToInt32(dgvr.Cells["ID"].Value))
@@ -835,8 +858,8 @@ namespace LanguagesManage
                     break;
                 }
             }
-            //throw new NotImplementedException();
         }
+
 
         private void DgvStrContent_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -859,8 +882,12 @@ namespace LanguagesManage
             {
                 int rowIndex = dgvStrContent.CurrentCell.RowIndex;
                 string fileName = dgvStrContent.Rows[rowIndex].Cells[1].Value.ToString();
-                CodeResxItem itme = GetCodeResxItem(dgvStrContent.Rows[rowIndex]);
-                SetCodeResxItem_CodeView(itme);
+                CodeResxItem item = GetCodeResxItem(dgvStrContent.Rows[rowIndex]);
+                SetCodeResxItem_CodeView(item);
+                txtValue.Text = item.ResxData.Value;
+                txtComment.Text = item.ResxData.Comment;
+                txtValue.Focus();
+                CurrentResxItem = item;
             }
             catch (Exception ex)
             {
@@ -1014,7 +1041,8 @@ namespace LanguagesManage
             richTextBox1.Text = "";
             List<string> CodeViewSource = item.CodeViewSource;
             List<string> Temp_strValue = new List<string>();
-            int Temp_intIndex = item.Line - 15;
+            int Temp_intLine = Convert.ToInt32(cmbCodeViewLineSet.SelectedValue);
+            int Temp_intIndex = item.Line - Temp_intLine;
             for (int i = 0; i < CodeViewSource.Count; i++)
             {
                 if (Temp_intIndex < 1)
@@ -1036,7 +1064,6 @@ namespace LanguagesManage
                     }
                 }
                 Temp_intIndex++;
-
             }
         }
 
@@ -1064,6 +1091,13 @@ namespace LanguagesManage
                 }
                 dgvr.Cells["注释"].Value = dgvr.Cells["字符串内容"].Value;
             }
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            CurrentResxItem.ResxData.Value = txtValue.Text;
+            CurrentResxItem.ResxData.Comment = txtComment.Text;
+            SaveResxInfo(CurrentResxItem);
         }
     }
 }
